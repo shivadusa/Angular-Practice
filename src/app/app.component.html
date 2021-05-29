@@ -1,42 +1,83 @@
-<!--Only One Table Task-->
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-  <h4>Add Form</h4>
-  <div class="form-group">
-    <label for="username">UserName</label>
-    <input type="text" name="username" id="username" class="form-control" placeholder="Enter Username" [(ngModel)]="person.UserName">
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email" class="form-control"  placeholder="Enter Email" [(ngModel)]="person.Email">
-  </div>
-  <div class="form-group">
-    <label for="mobilenumber">MobileNumber</label>
-    <input type="number" name="mobilenumber" id="mobilenumber" class="form-control"   placeholder="Enter MobileNumber" [(ngModel)]="person.MobileNumber">
-  </div>
-<div class="form-group">
-  <button class="btn btn-success">Add</button>&nbsp;&nbsp;&nbsp;
-  <button class="btn btn-success" (click)="onSave()">Save</button>
+<h1>Bindings practice</h1>
+
+<!--Interpolation Binding Example-->
+<h1>Interpolation Binding Example</h1>
+<p>{{title}}</p>
+<p>Using Interpolation Binding We can also output mathematical expression such as</p>
+<p>Addition is:{{Number1+Number2}}</p><br>
+<p>You can use the same application in another way: That is by using methods</p>
+{{ addTwoNumbers()}}
+<!--used to get the length of string-->
+<p>{{title.length}}</p>  
+<hr>
+<!--Property Binding Example-->
+<h1>Property Binding</h1>
+<input type="text" [value]="property"><br><br>
+<img [src]="imgurl" >
+<button disabled>Disabled button</button>
+<p [ngClass]="classes">Angular applies the class special to the element so that you can use special to apply CSS styles.</p>
+<hr>
+<!--Attribute Binding Example-->
+<h1>Attribute Binding</h1>
+<a [href]="href"[attr.updatelink]="updateLink">Google</a>
+<hr>
+<!--Event Binding Example-->
+<h1>Event Binding</h1>
+<button (click)="onSave($event)">Event Binding</button>
+<hr>
+<!--Two Way Data Binding-->
+<h1>Two-way Data Binding</h1>
+<input type="text" [(ngModel)]="fullName"><br><br>
+{{fullName}}
+<hr>
+<!--Directives Example-->
+<h1>Directives</h1>
+<!--NgIf Example-->
+<h2>NgIf Directive Example</h2>
+<p>Click the show button to display the data</p>
+<h1 *ngIf="visible">{{topic}}</h1><br><br>
+<button (click)="onShow()">SHOW</button>
+<button (click)="onHide()">HIDE</button><br><br>
+
+<!--NgFor Example-->
+<h2 >NgFor Directive Example</h2>
+<div *ngFor="let sub of subjects">
+    <p>{{sub}}</p>
+</div><br>
+<div *ngFor="let sub of subjects index as i">
+    <p>{{i}}--->{{sub}}</p>
+</div><br><br>
+
+<!--NgSwitch Example-->
+<h2 >NgSwitch Directive Example</h2>
+<div [ngSwitch]="myChoice">
+    <div *ngSwitchCase="'one'">First Block</div>
+    <div *ngSwitchCase="'two'">First Block</div>
+    <div *ngSwitchCase="'Three'">First Block</div>
 </div>
-</div>
- <div class="col-md-6">
-  <table class="table table-bordered" *ngIf="isHideTable">
-    <thead>
-      <tr>
-        <th>UserName</th>
-        <th>Email</th>
-        <th>MobileNumber</th>
-      </tr>
-    </thead>
-    <tbody >
-      <tr *ngFor="let tabledata of tabledataArr">
-        <td>{{tabledata.UserName}}</td>
-        <td>{{tabledata.Email}}</td>
-        <td>{{tabledata.MobileNumber}}</td>
-      </tr>
-    </tbody>
-  </table>
- </div>
-</div>
-</div>
+<hr>
+<!--
+<button *ngIf="button1" (click)="one()">One</button>
+<button *ngIf="!button1" (click)="two()">Two</button><br>-->
+
+<button (click)="hideAndShow()">{{button1? 'one':'two'}}</button><br><br>
+
+<!--Task-1 20-03-2021 -->
+<button (click)="increase()">Increase<span><i class="fa fa-arrow-up" aria-hidden="true"></i></span></button>
+{{add}}
+<button (click)="decrease()">Decresae<span><i class="fa fa-arrow-down" aria-hidden="true"></i></span></button><br><br>
+
+
+<!--Task-1 20-03-2021 -->
+<input type="text" (blur)="myFunc1(placeId1)" [(ngModel)]="placeId1"><br><br>
+<input type="text" (blur)="myFunc2(placeId2)" [(ngModel)]="placeId2"><br><br>
+<input type="text" (blur)="myFunc3(placeId3)" [(ngModel)]="placeId3"><br><br>
+<input type="text" (blur)="myFunc4(placeId4)" [(ngModel)]="placeId4"><br><br>
+<input type="text" (blur)="myFunc5(placeId5)" [(ngModel)]="placeId5"><br><br>
+
+
+<!--A Angular Practice-->
+
+
+<
+
